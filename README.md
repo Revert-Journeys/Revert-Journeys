@@ -1,4 +1,4 @@
-# Revert Hub website
+# Revert Hub website https://reverthub.uk/
 
 Support, learning and community for new and returning Muslims. Starting in Manchester, for the UK.
 
