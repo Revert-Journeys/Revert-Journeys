@@ -504,6 +504,25 @@
   .whybox p,.corebox li,.corebox p,.module .intro,.islam-sec p,.define,.onetruth p,.ayah p,.sub,details.more .ans p:not(.arabic),details.more .ans li{font-family:var(--read); font-size:19px; line-height:1.65;}
   .corebox strong,.whybox strong,details.more .ans strong{font-weight:700;}
   @media(max-width:640px){ .whybox p,.corebox li,.corebox p,.module .intro,.islam-sec p,.define,.onetruth p,.ayah p,details.more .ans p:not(.arabic),details.more .ans li{font-size:18.5px;} }
+
+  /* Guided start: one question at a time. To undo, delete from here to the end of this style block. */
+  .guide{margin:16px 0 6px;}
+  .gstep{font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0 0 8px; font-weight:700;}
+  .gq{font-family:var(--display); font-size:clamp(28px,4.6vw,44px); line-height:1.08; margin:0 0 6px; outline:none;}
+  .guide .doors{margin:18px 0 6px;}
+  .gopts{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:18px 0 8px;}
+  .gopt{display:block; width:100%; text-align:left; font:inherit; cursor:pointer; text-decoration:none; color:var(--ink); padding:20px 22px; border:2px solid var(--gold-2); border-radius:16px; background:linear-gradient(160deg,var(--paper),var(--band));}
+  .gopt b{display:block; font-family:var(--display); font-size:24px; line-height:1.15; margin-bottom:6px;}
+  .gopt span{display:block; color:var(--muted); font-size:16px; line-height:1.4;}
+  .gmore{margin:12px 0 0; font-size:16px;} .gmore a{margin-right:18px; display:inline-block; padding:10px 0;}
+  .gback{background:none; border:0; color:var(--ink); font:inherit; font-weight:700; cursor:pointer; padding:10px 0; min-height:44px; margin:0 0 6px;}
+  .startmore{border-top:1px solid var(--rule); margin-top:26px; padding-top:6px;}
+  .startmore>summary{cursor:pointer; font-weight:700; padding:12px 0; min-height:44px; font-size:17px;}
+  .smbody{padding-top:6px;}
+  .linklike{background:none; border:0; padding:8px 0; font:inherit; color:inherit; text-decoration:underline; cursor:pointer;}
+  .rm *,.rm *::before,.rm *::after{animation:none !important; transition:none !important;}
+  .rm .lumen{display:none;}
+  @media(max-width:640px){ #start h1{font-size:31px; line-height:1.08; margin-bottom:8px;} #start .for{font-size:14px; margin:0 0 6px;} #start .tagline{margin:6px 0 8px; font-size:17px;} #start .trust{margin:6px 0 0; font-size:14px;} #start .orn{display:none;} .gopts{grid-template-columns:1fr;} .guide .door{padding:16px 18px;} .guide .door span{font-size:15px;} .guide .doors{gap:12px;} }
 </style>
 </head>
 <body>
@@ -638,14 +657,34 @@ window.RJ_EDIT = {
       <p class="for">For brothers and sisters who are new to Islam, or finding their way back</p>
       <h1>You&rsquo;ve found Islam. Now walk it <span class="shine">with your brothers and sisters.</span></h1>
       <p class="tagline">Guidance is from Allah. Support is our job.</p>
-      <p class="lede">The shahadah is the start of the road, not the end of it. Pick the door that fits you today.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#journey">I&rsquo;m new or returning: start here</a>
-        <a class="btn btn-line" href="#ask">Talk to a person</a>
-      </div>
       <p class="trust">Free for everyone. No account needed. All content is being checked with our scholars.</p>
 
-      <div class="switch">
+      
+
+      <div class="guide" id="guide">
+        <div id="g1">
+          <p class="gstep">Step 1 of 2</p>
+          <h2 class="gq">Where are you today?</h2>
+          <div class="doors" aria-label="Where are you?">
+            <a class="door" href="#islam" data-door="curious"><b>I&rsquo;m curious about Islam</b><span>What Muslims believe and why, in plain language. No pressure.</span><em>Choose &rarr;</em></a>
+            <a class="door" href="#journey" data-door="new"><b>I&rsquo;m new, or returning</b><span>You have taken your shahadah, or you are finding your way back.</span><em>Choose &rarr;</em></a>
+            <a class="door" href="#doubts" data-door="muslim"><b>I&rsquo;m Muslim and I have questions</b><span>Doubts are human. Here is where to take them, and who to ask.</span><em>Choose &rarr;</em></a>
+            <a class="door" href="#involve" data-door="help"><b>I want to help or share</b><span>Welcome someone, teach, host a circle, or pass this site on.</span><em>Choose &rarr;</em></a>
+          </div>
+        </div>
+        <div id="g2" hidden>
+          <button type="button" class="gback" id="gback">&larr; Back</button>
+          <p class="gstep">Step 2 of 2</p>
+          <h2 class="gq" id="g2q" tabindex="-1"></h2>
+          <p class="muted" id="g2sub"></p>
+          <div class="gopts" id="gopts"></div>
+          <p class="gmore" id="gmore"></p>
+        </div>
+      </div>
+      <div class="choosebar"><a class="btn btn-primary" href="#choose">Help me choose</a><p>Four quick questions. Nothing is stored or sent.</p></div>
+      <div class="finder"><label for="fq" class="sec" style="margin-top:0;">Looking for something?</label><input id="fq" class="gsearch" type="search" autocomplete="off"><div id="fres" class="fres" aria-live="polite"></div></div>
+      <details class="startmore"><summary>More on this page: quick links, a tour, this week, and what is on</summary><div class="smbody">
+        <div class="switch">
         <p class="q">What do you need right now?</p>
         <a href="#shahada">I want to become Muslim. <span>Shahada</span></a>
         <a href="#m-prayer">I want to learn how to pray. <span>Learn</span></a>
@@ -659,39 +698,27 @@ window.RJ_EDIT = {
         <a href="#involve">I want to help someone else. <span>Get involved</span></a>
         <a href="#islam">I&rsquo;m just curious about Islam. <span>What is Islam?</span></a>
       </div>
-
-      <p class="sec" style="margin-top:34px;">Or tell us who you are</p>
-      <div class="doors" aria-label="Where are you?">
-        <a class="door" href="#islam"><b>I&rsquo;m curious about Islam</b><span>What Muslims believe and why, in plain language. No pressure.</span><em>What is Islam? &rarr;</em></a>
-        <a class="door" href="#journey"><b>I&rsquo;m new, or returning</b><span>You have taken your shahadah, or you are finding your way back. See the road and take the next step.</span><em>Your journey &rarr;</em></a>
-        <a class="door" href="#doubts"><b>I&rsquo;m Muslim and I have questions</b><span>Doubts are human. Here is where to take them, and who to ask.</span><em>Questions and doubts &rarr;</em></a>
-        <a class="door" href="#involve"><b>I want to help or share</b><span>Welcome someone, teach, host a circle, or pass this site on.</span><em>Get involved &rarr;</em></a>
-      </div>
-      <div class="finder"><label for="fq" class="sec" style="margin-top:0;">Looking for something?</label><input id="fq" class="gsearch" type="search" autocomplete="off"><div id="fres" class="fres" aria-live="polite"></div></div>
-      <details class="more tour"><summary>New here? A 30-second tour of the site</summary><div class="ans"><ul>
+        <details class="more tour"><summary>New here? A 30-second tour of the site</summary><div class="ans"><ul>
         <li><strong>Start</strong> is this page. Pick the door that fits you, or use the search above.</li>
         <li><strong>Your journey</strong> shows the road. Choose which road is yours: new, a while ago, or born Muslim.</li>
         <li><strong>Learn</strong> has a topic for each part of the faith. Each opens with the why, then the answer, then your questions. Tick a topic when it clicks, and take the quick check at the bottom.</li>
         <li>In <strong>Prayer</strong> you can turn the Arabic on or off, and practise with flashcards. Tap <strong>Save</strong> on any link to keep it in My list.</li>
         <li><strong>Ask</strong> reaches a real person. <strong>Community</strong> finds circles and events. The sun button switches light and dark.</li>
       </ul></div></details>
-      <div class="choosebar"><a class="btn btn-primary" href="#choose">Help me choose</a><p>Four quick questions. Nothing is stored or sent.</p></div>
-
-      <div class="onestep" id="onestep" aria-live="polite">
+        <div class="onestep" id="onestep" aria-live="polite">
         <p class="os-tag">Your one step this week</p>
         <p class="os-text" id="ostext">Learn what the shahadah means, in your own words.</p>
         <a class="btn btn-line" id="oslink" href="#m-core">Start this step</a>
         <p class="os-note">One small step is enough. A new one arrives each week. <span class="chip build" style="margin-left:6px;">Being checked with scholars</span></p>
       </div>
-
-      <div class="comingup">
+        <div class="comingup">
         <div class="cu-head"><h3>Coming up</h3><a href="#events">All events and classes</a></div>
         <div class="strip" id="strip" aria-live="polite"><p class="muted">Loading what is on...</p></div>
       </div>
-
-      
+      </div></details>
     </div>
 
+    <details class="startmore aboutus"><summary>About Revert Journeys: our vision, and why this exists</summary><div class="smbody">
     <div class="block">
       <h2>Our vision and mission</h2>
       <p class="sub">What we are here to do, in two sentences.</p>
@@ -740,6 +767,7 @@ window.RJ_EDIT = {
         </div></div></details>
       </div>
     </div>
+    </div></details>
   </div>
 </div>
 
@@ -901,6 +929,11 @@ window.RJ_EDIT = {
       <div class="orn" aria-hidden="true">&#10022;</div>
       <h2>Your journey</h2>
       <p class="sub">Everyone comes to Islam by a different road, and the road after the shahadah is long. Here is the whole way, stage by stage, with what is ready for you now and what we are still building. We would rather tell you plainly than promise too much.</p>
+      <details class="more"><summary>Why do some of us say &ldquo;revert&rdquo;?</summary><div class="ans">
+        <span class="chip build review">Being checked with our scholars</span>
+        <p>Many Muslims say &ldquo;revert&rdquo; because Islam teaches that every person is born on the fitrah, a natural state of turning to Allah. Allah says: &ldquo;So direct your face toward the religion, inclining to truth: the fitrah of Allah upon which He created people&rdquo; (Quran 30:30). The Prophet <span class="pbuh" lang="ar">&#65018;</span> said that every child is born on the fitrah (reported in Sahih al-Bukhari and Sahih Muslim). On that view, someone who comes to Islam is returning to it.</p>
+        <p>You will also hear &ldquo;convert&rdquo; and &ldquo;new Muslim&rdquo;. Everyone understands all of them. Use whichever word you are comfortable with. You are welcome here either way.</p>
+      </div></details>
       <div class="lens" role="group" aria-label="Which road is yours?">
         <p class="sec" style="margin-top:6px;">Which road is yours?</p>
         <button type="button" class="lensbtn" data-lens="new" aria-pressed="true">I&rsquo;m new to Islam</button>
@@ -2202,7 +2235,7 @@ window.RJ_EDIT = {
       <div>
         Starting in Manchester. Building across the UK.<br>
         Our first circle: Al Furqan Islamic Centre<br>
-        <a href="mailto:hubrevert@gmail.com">hubrevert@gmail.com</a><br>Instagram: <a href="https://www.instagram.com/revertjourneysuk/">@revertjourneysuk</a>
+        <a href="mailto:hubrevert@gmail.com">hubrevert@gmail.com</a><br><a href="mailto:hubrevert@gmail.com?subject=Error%20on%20Revert%20Journeys">Report an error</a> &middot; <button type="button" class="linklike" id="motionbtn" aria-pressed="false">Reduce motion: off</button><br>Instagram: <a href="https://www.instagram.com/revertjourneysuk/">@revertjourneysuk</a>
       </div>
     </div>
     <p class="credits">Credits. Every talk, book, app, course and study we link to belongs to its makers, and we link to the original so you get the real copy. Quoted figures name their source. If you are a maker of something we link to and would like it changed or removed, tell us and we will do it gladly. Please email us.</p>
@@ -2793,5 +2826,79 @@ window.RJ_EDIT = {
 })();
 </script>
 
+<script>
+/* Guided start and reduce-motion switch. Self-contained. */
+(function(){
+  var G={
+    curious:{q:'What would help you most?',sub:'No pressure. Nothing here is stored or sent.',o:[
+      ['What do Muslims believe?','The basics of Islam, in plain language.','#islam'],
+      ['I have questions or doubts','Where to take them, and who to ask.','#doubts'],
+      ['I would like to become Muslim','A calm, no-pressure guide.','#shahada'],
+      ['I would like to talk to someone','A real person replies.','#ask']],x:[]},
+    'new':{q:'What do you need first?',sub:'Pick one. You can come back for the rest.',lens:'new',o:[
+      ['Learn to pray','Wudu and the prayer, step by step.','#m-prayer'],
+      ['Understand what I have said yes to','The basics of the faith, one topic at a time.','#learn'],
+      ['Learn to read the Quran','Where to start, and free classes.','#m-quran'],
+      ['Find people near me','Circles, classes and events.','#find']],
+      x:[['Talk to someone','#ask'],['Things are getting hard','#hard'],['A sisters\u2019 space','#sisters']]},
+    muslim:{q:'What is on your mind?',sub:'Pick the closest. A person is always an option.',o:[
+      ['I have a question or a doubt','Where to take it, and who to ask.','#doubts'],
+      ['I want to get back into practice','See the road and take one step.','#journey'],
+      ['Find people near me','Circles, classes and events.','#find'],
+      ['Talk to someone','A real person replies.','#ask']],x:[['Things are getting hard','#hard'],['A sisters\u2019 space','#sisters']]},
+    help:{q:'How would you like to help?',sub:'Small things count.',o:[
+      ['Be there for someone new','Welcome, mentor or just check in.','#involve'],
+      ['Tell us about a class or circle','So we can point people to it.','#involve'],
+      ['Share this site','Send it to someone who needs it.','share']],x:[]}
+  };
+  var g1=document.getElementById('g1'), g2=document.getElementById('g2');
+  if(!g1||!g2){ return; }
+  function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  function open(key){
+    var d=G[key]; if(!d){ return; }
+    document.getElementById('g2q').textContent=d.q;
+    document.getElementById('g2sub').textContent=d.sub;
+    var h='';
+    d.o.forEach(function(o){
+      if(o[2]==='share'){ h+='<button type="button" class="gopt" data-share="1"><b>'+esc(o[0])+'</b><span>'+esc(o[1])+'</span></button>'; }
+      else { h+='<a class="gopt" href="'+o[2]+'"'+(d.lens?' data-lens="'+d.lens+'"':'')+'><b>'+esc(o[0])+'</b><span>'+esc(o[1])+'</span></a>'; }
+    });
+    document.getElementById('gopts').innerHTML=h;
+    var m='';
+    (d.x||[]).forEach(function(x){ m+='<a href="'+x[1]+'">'+esc(x[0])+'</a>'; });
+    document.getElementById('gmore').innerHTML=m;
+    g1.hidden=true; g2.hidden=false;
+    var q=document.getElementById('g2q'); try{ q.focus({preventScroll:true}); }catch(e){}
+    try{ g2.scrollIntoView({block:'start'}); }catch(e){}
+  }
+  function back(){ g2.hidden=true; g1.hidden=false; try{ g1.scrollIntoView({block:'start'}); }catch(e){} }
+  g1.addEventListener('click',function(ev){
+    var a=ev.target.closest?ev.target.closest('a[data-door]'):null; if(!a){ return; }
+    ev.preventDefault(); open(a.getAttribute('data-door'));
+  });
+  g2.addEventListener('click',function(ev){
+    var t=ev.target; if(!t.closest){ return; }
+    if(t.closest('#gback')){ back(); return; }
+    var sh=t.closest('[data-share]');
+    if(sh){
+      var d=document.querySelector('.aboutus'); if(d){ d.open=true; }
+      var b=document.getElementById('sharebtn'); if(b){ b.click(); try{ b.scrollIntoView({block:'center'}); }catch(e){} }
+      return;
+    }
+    var l=t.closest('a[data-lens]');
+    if(l){ try{ localStorage.setItem('rj-lens',l.getAttribute('data-lens')); }catch(e){} }
+  });
+  /* Reduce motion switch */
+  var root=document.documentElement, mb=document.getElementById('motionbtn');
+  function setRM(on,save){
+    root.classList.toggle('rm',on);
+    if(mb){ mb.textContent='Reduce motion: '+(on?'on':'off'); mb.setAttribute('aria-pressed',on?'true':'false'); }
+    if(save){ try{ localStorage.setItem('rj-motion',on?'on':'off'); }catch(e){} }
+  }
+  var rm=false; try{ rm=localStorage.getItem('rj-motion')==='on'; }catch(e){}
+  setRM(rm,false);
+  if(mb){ mb.addEventListener('click',function(){ setRM(!root.classList.contains('rm'),true); }); }
+})();
+</script>
 </body>
 </html>
