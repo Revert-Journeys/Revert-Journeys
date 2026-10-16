@@ -1,7 +1,0 @@
-{
-"name": "revert-journeys",
-  "assets": {
-    "directory": "./public",
-    "not_found_handling": "single-page-application"  // or "404-page"
-  }
-}
