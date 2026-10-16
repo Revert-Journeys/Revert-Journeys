@@ -1,7 +1,7 @@
 # How to edit the Revert Hub site
 
 ## Change some wording (2 minutes)
-1. Go to the repo on github.com and click `index.html`.
+1. Go to the repo on github.com and open the `public` folder, then click `index.html`.
 2. Click the pencil icon (Edit this file).
 3. Press Ctrl+F (Cmd+F on Mac) and search for the sentence you want to change.
 4. Change only the words. Do not touch anything inside < > or the quote marks.
@@ -25,3 +25,13 @@ Open the file on GitHub, click History, find the last good version, and click th
 - Wording and links only here. For new sections or design changes, ask Claude and paste in the latest index.html first, so earlier edits are not lost.
 - Religious content (duas, guides, rulings) should be checked by a scholar before it goes live.
 - Never put passwords, personal phone numbers or anyone's story without written consent into this repo. It may be public.
+
+## The website forms (Ask, Share your story, Tell us how you would like to help)
+- They send straight to hubrevert@gmail.com through a free service called FormSubmit. No email app opens for the visitor.
+- First time only: after the site update goes live, fill in and send one test message on the Ask page. FormSubmit will email hubrevert@gmail.com an activation link. Click it once. After that every form works.
+- Check the Gmail spam folder if the activation email does not arrive.
+- If a form ever fails, the visitor sees a link to email you instead, so nothing is lost.
+- Before sharing real stories widely, add a short privacy note (who sees stories, how long you keep them).
+
+## Save as PDF buttons
+The Dua and Glossary pages have a "Save as PDF" button. It opens the browser's print window. Choose "Save as PDF" as the destination. The PDF always matches whatever is on the site, so you never need to update a separate file.

@@ -1,12 +1,12 @@
-# Revert Hub website https://reverthub.uk/
+# Revert Hub website
 
 Support, learning and community for new and returning Muslims. Starting in Manchester, for the UK.
 
-- `index.html` is the whole website (one file).
-- `favicon.svg` is the browser tab icon.
-- `assets/` holds the logo and the Instagram profile picture.
+- `public/index.html` is the whole website (one file). This is the file you edit.
+- `public/favicon.svg` is the browser tab icon.
+- `public/assets/` holds the logo and the Instagram profile picture.
+- `wrangler.jsonc` tells Cloudflare which folder to publish. Leave it alone.
 
-Live site: update this line once the domain is connected.
 Contact: hubrevert@gmail.com
 
-Changes made in this repo go live automatically on Cloudflare Pages within about a minute.
+Any change committed here goes live on Cloudflare within about a minute.
