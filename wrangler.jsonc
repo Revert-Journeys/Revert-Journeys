@@ -1,7 +1,8 @@
 {
 "name": "revert-journeys",
-  "compatibility_date": "2025-10-01",
+ {
   "assets": {
-    "directory": "./public"
+    "directory": "./public",
+    "not_found_handling": "single-page-application"  // or "404-page"
   }
 }
