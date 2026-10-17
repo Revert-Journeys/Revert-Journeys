@@ -1,9 +1,9 @@
 # Rename checklist: Revert Journeys
 
-The site text now says Revert Journeys and Revert Circles. Three things still point to the old setup. Change them when the new ones exist.
+The site text, address and share image now say Revert Journeys and revertjourneys.uk. One thing is still open.
 
-1. **Domain.** In `public/index.html`, near the top of the script, change `SITE_URL='https://reverthub.uk'` to the new domain. Also change the `og:image` line in the `<head>` (search for `og-image.png`) so link previews in WhatsApp use the new domain. Then add the new custom domain in Cloudflare (Workers & Pages, your project, Settings, Domains).
-2. **Email.** Change `SITE_EMAIL='hubrevert@gmail.com'` in the same line. Then search the file for `hubrevert@gmail.com` and replace the remaining links (footer, shahada button). After you publish, send one test message on the Ask page and click the FormSubmit activation link in the new inbox.
+1. **Domain.** Done: `SITE_URL` and the `og:image` line point to `https://revertjourneys.uk`. If you change domain again, edit both (search for `og-image.png` and `SITE_URL`).
+2. **Email.** Change `SITE_EMAIL='hubrevert@gmail.com'` only if you move to a new address. Then search the file for `hubrevert@gmail.com` and replace the remaining links (footer, shahada button). After you change it, send one test message on the Ask page and click the FormSubmit activation link in the new inbox.
 3. **Instagram.** Done: the handle is now `revertjourneysuk`.
 
 Also replace: the gold door logo is already in `public/favicon.svg` and `public/assets/revert-journeys-logo.svg`. Update the Instagram profile picture with `revert-journeys-profile-1080.png`. Colour is easy to change: edit the three hex values in the gradients.

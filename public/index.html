@@ -11,7 +11,7 @@
 <meta property="og:site_name" content="Revert Journeys">
 <meta property="og:title" content="Revert Journeys: you've found Islam. Now walk it with people.">
 <meta property="og:description" content="A free guide for brothers and sisters who are new to Islam or finding their way back. In partnership with Al Furqan Islamic Centre.">
-<meta property="og:image" content="https://reverthub.uk/assets/og-image.png">
+<meta property="og:image" content="https://revertjourneys.uk/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -138,6 +138,21 @@
   .js .module{display:none;}
   .js .module.active{display:block;}
   .module + .module{margin-top:44px;}
+  /* background images: etched into the page, kept to a soft band at the top, never behind long reading text */
+  .panel{position:relative;}
+  .panel>.wrap,.panel>.join{position:relative; z-index:1;}
+  .bgph,.bgpat{position:absolute; top:0; left:0; right:0; height:300px; z-index:0; pointer-events:none; -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 22%,transparent 92%); mask-image:linear-gradient(to bottom,#000 0%,#000 22%,transparent 92%);}
+  .bgph{background:var(--img) var(--pos,center 40%)/cover no-repeat; opacity:.9; mix-blend-mode:multiply;}
+  .bgph.hero{height:380px; opacity:.6; -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 8%,transparent 78%); mask-image:linear-gradient(to bottom,#000 0%,#000 8%,transparent 78%);}
+  .bgpat{background:url(assets/img/lattice.svg) center top/80px 80px repeat; opacity:.34; height:340px;}
+  :root[data-theme="dark"] .bgph{background-image:var(--imgd); mix-blend-mode:screen; opacity:.5;}
+  :root[data-theme="dark"] .bgph.hero{opacity:.34;}
+  :root[data-theme="dark"] .bgpat{opacity:.22;}
+  @media(max-width:640px){ .bgph,.bgpat{height:230px;} .bgph.hero{height:330px;} }
+  footer{position:relative; overflow:hidden;} footer::before{content:""; position:absolute; inset:0; background:url(assets/img/lattice.svg) center/80px 80px repeat; opacity:.08; pointer-events:none;} footer>*{position:relative;}
+  @media print{ .bgph,.bgpat,footer::before{display:none;} }
+
+  .module{scroll-margin-top:6px;}
   .module > h3{font-size:36px; margin-bottom:6px;}
   .module .intro{color:var(--muted); max-width:34em; margin-bottom:22px;}
   .rows > div{display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; padding:16px 0; border-top:1px solid var(--rule);}
@@ -387,7 +402,7 @@
   .subnav a{font-family:var(--sans); font-weight:600; font-size:15px; text-decoration:none; padding:7px 14px; border:1.5px solid var(--rule); border-radius:999px; color:var(--muted);}
   .subnav a:hover{border-color:var(--accent-text); color:var(--ink);}
   .subnav a.on{background:var(--band); border-color:var(--gold-2); color:var(--ink);}
-  .fab{position:fixed; right:max(16px,env(safe-area-inset-right)); bottom:max(16px,env(safe-area-inset-bottom)); z-index:30; text-decoration:none; font-family:var(--sans); font-weight:700; font-size:16px; padding:12px 20px; border-radius:999px; color:var(--on-accent); background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); box-shadow:0 8px 24px var(--glow),0 2px 6px rgba(0,0,0,.18); transition:transform .2s, box-shadow .2s;}
+  .fab{position:fixed; left:max(16px,env(safe-area-inset-left)); bottom:max(16px,env(safe-area-inset-bottom)); z-index:30; text-decoration:none; font-family:var(--sans); font-weight:700; font-size:16px; padding:12px 20px; border-radius:999px; color:var(--on-accent); background:linear-gradient(135deg,var(--gold-1),var(--gold-2)); box-shadow:0 8px 24px var(--glow),0 2px 6px rgba(0,0,0,.18); transition:transform .2s, box-shadow .2s;}
   .fab:hover{transform:translateY(-2px); box-shadow:0 12px 30px var(--glow),0 2px 6px rgba(0,0,0,.2);}
   .fab.hide{display:none;}
   @media(max-width:640px){ .fab{font-size:15px; padding:11px 16px;} }
@@ -660,6 +675,7 @@ window.RJ_EDIT = {
 
 <!-- START -->
 <div class="panel" id="start">
+  <div class="bgph hero" style="--img:url(assets/img/etch/minaret-sky.jpg); --imgd:url(assets/img/etch/minaret-skyd.jpg); --pos:center 35%;" aria-hidden="true"></div>
   <div class="wrap">
     <div class="block">
       <div class="orn" aria-hidden="true">&#10022;</div>
@@ -782,6 +798,7 @@ window.RJ_EDIT = {
 
 <!-- WHAT IS ISLAM -->
 <div class="panel" id="islam">
+  <div class="bgph" style="--img:url(assets/img/etch/courtyard-dome.jpg); --imgd:url(assets/img/etch/courtyard-domed.jpg); --pos:center 30%;" aria-hidden="true"></div>
   <div class="wrap">
     <div class="block">
       <div class="orn" aria-hidden="true">&#10022;</div>
@@ -891,6 +908,7 @@ window.RJ_EDIT = {
 
 <!-- HELP ME CHOOSE -->
 <div class="panel" id="choose">
+  <div class="bgpat" aria-hidden="true"></div>
   <div class="wrap">
     <div class="subnav" aria-label="In this section"><a href="#journey">The road</a><a href="#shahada">Taking shahada</a><a href="#choose">Help me choose</a></div>
     <div class="block">
@@ -932,6 +950,7 @@ window.RJ_EDIT = {
 
 <!-- JOURNEY -->
 <div class="panel" id="journey">
+  <div class="bgph" style="--img:url(assets/img/etch/minaret-arch.jpg); --imgd:url(assets/img/etch/minaret-archd.jpg); --pos:center 55%;" aria-hidden="true"></div>
   <div class="wrap">
     <div class="subnav" aria-label="In this section"><a href="#journey">The road</a><a href="#shahada">Taking shahada</a><a href="#choose">Help me choose</a></div>
     <div class="block">
@@ -1088,6 +1107,7 @@ window.RJ_EDIT = {
 
 <!-- SHAHADA -->
 <div class="panel" id="shahada">
+  <div class="bgph" style="--img:url(assets/img/etch/courtyard-palms.jpg); --imgd:url(assets/img/etch/courtyard-palmsd.jpg); --pos:center 35%;" aria-hidden="true"></div>
   <div class="wrap">
     <div class="subnav" aria-label="In this section"><a href="#journey">The road</a><a href="#shahada">Taking shahada</a><a href="#choose">Help me choose</a></div>
     <div class="block">
@@ -1103,6 +1123,10 @@ window.RJ_EDIT = {
       <div style="max-width:36em;">
         <p>The first part says that Allah alone is God, and that worship belongs to Him alone. The second says that Muhammad <span class="pbuh" lang="ar">&#65018;</span> is the messenger He sent, and that we follow his guidance. Say it because you mean it. It is between you and Allah.</p>
       </div>
+
+      <div class="define"><b>What has just happened?</b>
+        <p>With the shahada you entered Islam. The Prophet <span class="pbuh" lang="ar">&#65018;</span> told a man who had just accepted Islam that Islam wipes out what came before it (Sahih Muslim 121). You begin again, with the account at zero. You have also joined a family: &ldquo;The believers are but brothers&rdquo; (Quran 49:10). You are not doing this alone.</p>
+        <p class="muted">Take the next steps gently. The next one is wudu and the prayer, and you can begin that even if you are clumsy. See <a href="#m-prayer">Prayer</a>.</p></div>
 
       <h3 class="sh-h">How people do it</h3>
       <div class="way"><h4 style="font-family:var(--display); font-weight:700; font-size:26px; line-height:1.1;">At a masjid, with someone beside you</h4><p>Many people choose this, so there is a witness, a welcome, and someone to answer questions. A masjid can often give you a certificate too, which can help later with things like marriage or Hajj paperwork. <a href="#find">Find a circle near you</a>.</p></div>
@@ -1132,7 +1156,7 @@ window.RJ_EDIT = {
       </details>
       <details>
         <summary>What about a bath, called ghusl?</summary>
-        <div class="answer"><p>Many scholars recommend a full wash, called ghusl, when you become Muslim. It is a good thing to ask a scholar about when you take your shahada.</p></div>
+        <div class="answer"><p>Many scholars recommend a full wash, called ghusl, when you become Muslim. Qays ibn Asim reported that the Prophet <span class="pbuh" lang="ar">&#65018;</span> told him to wash with water and lote leaves when he accepted Islam (Sunan Abi Dawud 355, Jami&rsquo; at-Tirmidhi 605). Think of it as a clean start. It is a good thing to ask a scholar about when you take your shahada.</p></div>
       </details>
       <details>
         <summary>Do I have to tell my family straight away?</summary>
@@ -1170,6 +1194,7 @@ window.RJ_EDIT = {
 
 <!-- LEARN -->
 <div class="panel" id="learn">
+  <div class="bgph" style="--img:url(assets/img/etch/library-aisle.jpg); --imgd:url(assets/img/etch/library-aisled.jpg); --pos:center 45%;" aria-hidden="true"></div>
   <div class="wrap">
     <div class="block">
       <h2>Learn the basics</h2>
@@ -1255,9 +1280,27 @@ window.RJ_EDIT = {
 
       <div class="module" id="m-prayer">
 <h3>Prayer</h3> <span class="chip build review">Being checked with our scholars</span>
-<p class="intro">Why we pray, how it works, and what to do when it is hard. Take it one step at a time.</p>
-<div class="whybox"><p class="sec">Purpose and background</p><p>Prayer is how we live out why we were created. &ldquo;Establish prayer for My remembrance&rdquo; (Quran 20:14). Five times a day we stop and return to Allah, so the whole day is wrapped in remembrance of Him. It is also the first thing we will be asked about on the Day of Judgement. The Prophet <span class="pbuh" lang="ar">&#65018;</span> said: &ldquo;The first action for which a servant will be held accountable is his prayer. If it is complete, he has succeeded; if it is defective, he has failed&rdquo; (Jami&rsquo; at-Tirmidhi 413, graded hasan). The Quran adds that &ldquo;prayer prohibits immorality and wrongdoing&rdquo; (Quran 29:45).</p><p>It was given to the Prophet <span class="pbuh" lang="ar">&#65018;</span> on the night of the Isra and Mi&rsquo;raj, when he was taken up to the heavens. The prayers were first fifty, and through Allah&rsquo;s mercy were reduced to five, with the reward of fifty (Sahih al-Bukhari, Sahih Muslim). It is a gift given directly, not through an angel.</p></div>
-<div class="corebox"><p class="sec">The core answer: five prayers, every day</p><ul><li><strong>Fajr</strong>: dawn, before sunrise, 2 rakat. <strong>Dhuhr</strong>: after the sun passes its peak, 4. <strong>Asr</strong>: mid to late afternoon, 4. <strong>Maghrib</strong>: just after sunset, 3. <strong>Isha</strong>: night, after twilight ends, 4. That is 17 in total. These are the fard (obligatory) rakat. Some prayers also have extra sunnah rakat, and the schools of fiqh differ on a few details. That is for later.</li><li>In the first two rakat of every prayer you recite Al-Fatiha and a short surah. In the third and fourth, Al-Fatiha only.</li><li>Fajr, Maghrib and Isha are recited aloud in the first two rakat. Dhuhr and Asr are silent.</li><li>Before praying: make wudu, have clean clothes and a clean place, be covered, face the Kaaba, and wait until the time has begun.</li><li>Extra prayers (the sunnah prayers, nawafil and tahajjud) are a gift for later. For now, the five obligatory prayers are the anchor.</li></ul></div>
+<p class="intro">Begin now, even if you are clumsy. Nobody learns the prayer in a day, and you are not expected to. Start with what you know, and build from there.</p>
+<div class="corebox"><p class="sec">Start here</p><ul>
+<li><strong>Begin today.</strong> Pray the five prayers at their times, even if you are slow and unsure of the words. Allah knows you are learning, and every honest attempt counts.</li>
+<li>The Prophet <span class="pbuh" lang="ar">&#65018;</span> said: &ldquo;The religion is ease, and no one makes it hard on himself except that it overcomes him. So be moderate, aim to do well, and be of good cheer&rdquo; (Sahih al-Bukhari 39). Ease into it. Do not wait until you feel ready, and do not wait until you are perfect.</li>
+<li><strong>Learn in this order:</strong> wudu, then Al-Fatiha, then one short surah such as Al-Ikhlas, then the movements, then the rest, one step at a time.</li>
+<li>If you cannot yet recite Al-Fatiha, see &ldquo;I have not learned the words yet&rdquo; below, and keep going.</li></ul></div>
+<div class="corebox"><p class="sec">The shape of the prayer, in one minute</p><ol>
+<li>Wudu first. Face the Kaaba, form the intention in your heart, then stand and say <em>Allahu Akbar</em>.</li>
+<li>Standing, recite Al-Fatiha. In the first two units, add a short surah.</li>
+<li>Bow, with your back level, and stay until you are calm.</li>
+<li>Rise until you are standing straight again.</li>
+<li>Go down into prostration, sit for a moment, then prostrate a second time. That completes one unit, called a <em>rakah</em>.</li>
+<li>After every second unit, and at the end, sit and say the <em>tashahhud</em>, the testimony of faith.</li>
+<li>End by turning your face to the right, then the left, saying <em>As-salamu alaykum wa rahmatullah</em>.</li></ol>
+<p class="muted" style="margin:10px 0 0;">Fajr is two units. Maghrib is three: two, a sitting, then one more. Dhuhr, Asr and Isha are four: two, a sitting, then two more.</p></div>
+<details class="more"><summary>What every prayer needs, and what is extra</summary><div class="ans">
+<p><strong>The core, as most scholars teach it:</strong> the intention in the heart, standing if you are able, the opening <em>Allahu Akbar</em>, reciting Al-Fatiha, bowing, rising, two prostrations with a sitting between them, the final sitting with the tashahhud, ending with the salam, and doing each movement calmly.</p>
+<p><strong>Extra, and rewarded:</strong> raising the hands at the takbir (Sahih al-Bukhari 735), placing the right hand over the left, saying <em>Ameen</em> after Al-Fatiha (Sahih al-Bukhari 780), the surah after Al-Fatiha, the words said in bowing and prostration, and the blessings on the Prophet <span class="pbuh" lang="ar">&#65018;</span> in the final sitting. Around the five prayers there are also extra prayers. The Prophet <span class="pbuh" lang="ar">&#65018;</span> said that whoever prays twelve voluntary units each day has a house built for him in Paradise (Sahih Muslim 728).</p>
+<p><strong>Where scholars differ.</strong> The schools of fiqh differ on some details, such as whether the first sitting, the blessings on the Prophet <span class="pbuh" lang="ar">&#65018;</span>, and the words in bowing and prostration are strictly required or strongly recommended. Do not let that put you off. Follow one trusted teacher&rsquo;s way for now, and ask them when you are unsure.</p></div></details>
+
+<div class="corebox"><p class="sec">The five prayers and their times</p><ul><li><strong>Fajr</strong>: dawn, before sunrise, 2 rakat. <strong>Dhuhr</strong>: after the sun passes its peak, 4. <strong>Asr</strong>: mid to late afternoon, 4. <strong>Maghrib</strong>: just after sunset, 3. <strong>Isha</strong>: night, after twilight ends, 4. That is 17 in total. These are the fard (obligatory) rakat. Some prayers also have extra sunnah rakat, and the schools of fiqh differ on a few details. That is for later.</li><li>In the first two rakat of every prayer you recite Al-Fatiha and a short surah. In the third and fourth, Al-Fatiha only.</li><li>Fajr, Maghrib and Isha are recited aloud in the first two rakat. Dhuhr and Asr are silent.</li><li>Before praying: make wudu, have clean clothes and a clean place, be covered, face the Kaaba, and wait until the time has begun.</li><li>Extra prayers (the sunnah prayers, nawafil and tahajjud) are a gift for later. For now, the five obligatory prayers are the anchor.</li></ul></div>
 <p class="sec">How to</p>
 <div class="rows"><div><h4>Why do we make wudu, and how?</h4><div class="links"><a href="https://youtu.be/P29LMOHhpjE">Watch the video</a></div></div>
 <div><h4>How do I pray?</h4><div class="links"><a href="https://youtu.be/Kuk6HgOH9yQ">Watch part 1</a><a href="https://youtu.be/iWFMlUyB73A">Watch part 2</a></div></div>
@@ -1265,8 +1308,29 @@ window.RJ_EDIT = {
 <div><h4>What is ghusl, and when is it needed?</h4><div class="links"><span>Guide coming soon</span></div></div>
 <div><h4>What do I say, and what does it mean?</h4><div class="links"><span>Step by step, just below</span></div></div>
 <div><h4>When are the prayer times where I live?</h4><div class="links"><a href="#m-apps">Open apps and tools</a></div></div></div>
+<details class="more"><summary>Wudu in eight steps</summary><div class="ans"><ol>
+<li>Form the intention in your heart to make wudu for Allah, and say <em>Bismillah</em>.</li>
+<li>Wash both hands up to the wrists, three times, so the water reaches between the fingers.</li>
+<li>Rinse your mouth, three times.</li>
+<li>Draw a little water into your nose and blow it out, three times.</li>
+<li>Wash your whole face, three times: from the hairline to the chin, and from ear to ear.</li>
+<li>Wash each arm from the fingertips to the elbow, three times, the right arm first, then the left.</li>
+<li>Wipe your head once with wet hands, then wipe your ears.</li>
+<li>Wash each foot up to the ankle, three times, the right foot first, then the left, including between the toes.</li></ol>
+<p class="arabic" lang="ar" dir="rtl">أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ</p>
+<p class="muted"><em>Ash-hadu an la ilaha illallahu wahdahu la sharika lah, wa ash-hadu anna Muhammadan &lsquo;abduhu wa rasuluh.</em> &ldquo;I bear witness that there is no god but Allah alone, with no partner, and that Muhammad is His servant and messenger.&rdquo; Said when you finish (Sahih Muslim 234).</p>
+<p>You stay in wudu until it is broken, for example by using the toilet, passing wind or deep sleep. Then you simply make it again.</p>
+<p class="muted">Source. The Quran sets out the face, arms, head and feet (Quran 5:6). Uthman&rsquo;s description of how the Prophet <span class="pbuh" lang="ar">&#65018;</span> made wudu is in Sahih al-Bukhari 159 and Sahih Muslim 226. Schools differ on some details, so learn it hands-on from a trusted teacher too.</p></div></details>
 <div id="walk" class="walk"><p class="sec">Walk through the prayer</p><p class="muted" style="margin:-4px 0 12px;">What is said, what it means, where it comes from, and what it teaches. Read it once, then keep it nearby the first few times you pray.</p><p><button type="button" class="btn btn-line" id="arbtn" aria-pressed="true">Arabic: shown</button> <span class="muted" style="font-size:15px;">The Quran text comes from Quran.com. The wording of the other parts was compared with Sunnah.com where we could. All of it is still to be reviewed by our scholars.</span></p><div class="fcwrap" id="fcwrap"><button type="button" class="btn btn-primary" id="fcstart">Practise the prayer: flashcards</button> <span class="muted" id="fcprog" style="font-size:15px;"></span><div class="fc" id="fc" hidden></div></div><details class="more"><summary>1. Niyyah: intention</summary><div class="ans"><p>Silent, in the heart. No spoken formula is required.</p><p><strong>Source.</strong> The Prophet <span class="pbuh" lang="ar">&#65018;</span> said, &ldquo;Actions are judged by intentions&rdquo; (Sahih al-Bukhari, Sahih Muslim). It is simply knowing, in your mind, which prayer you are standing for.</p><p><strong>Meaning.</strong> This is the line between movement and worship. Without intention, standing, bowing and prostrating are just exercise. The intention is what makes it salah.</p></div></details><details class="more"><summary>2. Takbir: opening the prayer</summary><div class="ans"><p class="arabic ar-opt" lang="ar" dir="rtl">اللَّهُ أَكْبَرُ</p><p class="translit">Allahu Akbar</p><p class="meaning" style="margin-left:0;">&ldquo;Allah is the Greatest.&rdquo;</p><p><strong>Source.</strong> Called Takbirat al-Ihram, the &ldquo;prohibiting takbir&rdquo;, because from here until the end of the prayer, talking, eating and looking around are not allowed. It is reported across Sahih al-Bukhari and Sahih Muslim as how the Prophet <span class="pbuh" lang="ar">&#65018;</span> began every prayer.</p><p><strong>Meaning.</strong> You declare, before anything else, that whatever you bring into this prayer, your day, your worries, your to-do list, is smaller than the One you stand before.</p></div></details><details class="more"><summary>3. Qiyam: standing, and the opening du&rsquo;a</summary><div class="ans"><p class="arabic ar-opt" lang="ar" dir="rtl">سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبَارَكَ اسْمُكَ، وَتَعَالَى جَدُّكَ، وَلَا إِلَهَ غَيْرُكَ</p><p class="translit">Subhanaka Allahumma wa bihamdika, wa tabarakasmuka, wa ta&rsquo;ala jadduka, wa la ilaha ghairuk</p><p class="meaning" style="margin-left:0;">&ldquo;Glory to You, O Allah, and praise be to You. Blessed is Your name, exalted is Your majesty, and none is worthy of worship but You.&rdquo;</p><p><strong>Source.</strong> Reported from Abu Sa&rsquo;id al-Khudri in Sunan Abi Dawud (775) and Jami&rsquo; at-Tirmidhi. The Abu Dawud report is about the Prophet&rsquo;s <span class="pbuh" lang="ar">&#65018;</span> night prayer, and scholars also teach this opening for the obligatory prayers. Our scholars will confirm the wording.</p><p><strong>Meaning.</strong> Before you recite a verse, you acknowledge who you are speaking to. Praise first, then request.</p></div></details><details class="more"><summary>4. Recitation: Al-Fatiha, then a surah</summary><div class="ans"><p class="arabic ar-opt" lang="ar" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ<br>ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ<br>ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ<br>مَـٰلِكِ يَوْمِ ٱلدِّينِ<br>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ<br>ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ<br>صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ</p><p class="translit">Bismillahir-Rahmanir-Rahim&hellip;</p><p class="meaning" style="margin-left:0;">Surah Al-Fatiha (&ldquo;The Opening&rdquo;), the seven verses that open the Quran, then a second, shorter surah. <a href="https://quran.com/1">Read and listen on Quran.com</a>.</p><p><strong>Source.</strong> The Prophet <span class="pbuh" lang="ar">&#65018;</span> said, &ldquo;There is no prayer for the one who does not recite Al-Fatiha&rdquo; (Sahih al-Bukhari, Sahih Muslim). It is the one recitation that makes a rakah valid.</p><p><strong>Meaning.</strong> Al-Fatiha is a conversation. According to a hadith qudsi, Allah responds to each line as you say it, before you ask for guidance in the last verse. It is the heart of each rakah.</p></div></details><details class="more"><summary>5. Ruku: bowing</summary><div class="ans"><p class="arabic ar-opt" lang="ar" dir="rtl">سُبْحَانَ رَبِّيَ الْعَظِيمِ</p><p class="translit">Subhana Rabbiyal &lsquo;Adheem (3 times)</p><p class="meaning" style="margin-left:0;">&ldquo;Glory to my Lord, the Most Great.&rdquo; Back flat, hands resting on the knees.</p><p><strong>Source.</strong> Hudhayfah reported the Prophet <span class="pbuh" lang="ar">&#65018;</span> saying this in his bowing (Sahih Muslim 772). It echoes Quran 56:74, &ldquo;So glorify the name of your Lord, the Most Great&rdquo;. A report in Sunan Abi Dawud (869) says he told the Companions to use that verse in ruku, but Al-Albani graded that report weak, so we cite the verse for context only.</p><p><strong>Meaning.</strong> The words of bowing echo a verse of the Quran. The link between the Quran and the prayer is close, not only symbolic.</p></div></details><details class="more"><summary>6. Rising from ruku</summary><div class="ans"><p class="arabic ar-opt" lang="ar" dir="rtl">سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ، رَبَّنَا لَكَ الْحَمْدُ</p><p class="translit">Sami&rsquo; Allahu liman hamidah, Rabbana lakal hamd</p><p class="meaning" style="margin-left:0;">&ldquo;Allah hears the one who praises Him. Our Lord, all praise is for You.&rdquo; Some reports add &ldquo;wa&rdquo;: <em>Rabbana wa lakal hamd</em>. Both are authentic.</p><p><strong>Source.</strong> Reported by Abu Hurairah in Sahih al-Bukhari (789) and Sahih Muslim as the Prophet&rsquo;s <span class="pbuh" lang="ar">&#65018;</span> own practice on rising from bowing.</p><p><strong>Meaning.</strong> A brief upright pause, acknowledging that Allah has heard your praise, before the most humble posture of the prayer.</p></div></details><details class="more"><summary>7. Sujood: prostration</summary><div class="ans"><p class="arabic ar-opt" lang="ar" dir="rtl">سُبْحَانَ رَبِّيَ الْأَعْلَى</p><p class="translit">Subhana Rabbiyal A&rsquo;la (3 times)</p><p class="meaning" style="margin-left:0;">&ldquo;Glory to my Lord, the Most High.&rdquo; Forehead, nose, palms, knees and toes on the ground. Done twice in every rakah.</p><p><strong>Source.</strong> Hudhayfah reported the wording (Sahih Muslim 772), which echoes Quran 87:1, &ldquo;Exalt the name of your Lord, the Most High&rdquo;. The Prophet <span class="pbuh" lang="ar">&#65018;</span> also said, &ldquo;The closest a servant comes to his Lord is when he is prostrating, so increase your supplication in that state&rdquo; (Sahih Muslim 482).</p><p><strong>Meaning.</strong> This is the moment in your day when you are closest to Allah. That is why it is the recommended place to make personal dua, in whatever language you need.</p></div></details><details class="more"><summary>8. Sitting between the two sujood</summary><div class="ans"><p class="arabic ar-opt" lang="ar" dir="rtl">رَبِّ اغْفِرْ لِي، رَبِّ اغْفِرْ لِي</p><p class="translit">Rabbighfirli, Rabbighfirli</p><p class="meaning" style="margin-left:0;">&ldquo;My Lord, forgive me. My Lord, forgive me.&rdquo; Said twice.</p><p><strong>Source.</strong> Reported by Hudhayfah in Sunan Abi Dawud (874), graded sahih by Al-Albani. Ibn Abbas reports a longer version, &ldquo;Allahummaghfir li warhamni&hellip;&rdquo;, in Sunan Abi Dawud and Jami&rsquo; at-Tirmidhi.</p><p><strong>Meaning.</strong> A brief seated breath between two acts of total submission, to simply ask forgiveness.</p></div></details><details class="more"><summary>9. Tashahhud: at-Tahiyyat</summary><div class="ans"><p class="arabic ar-opt" lang="ar" dir="rtl">التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ، السَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ</p><p class="translit">At-tahiyyatu lillahi was-salawatu wat-tayyibat, as-salamu &lsquo;alayka ayyuhan-Nabiyyu wa rahmatullahi wa barakatuh, as-salamu &lsquo;alayna wa &lsquo;ala &lsquo;ibadillahis-salihin. Ashhadu an la ilaha illallah, wa ashhadu anna Muhammadan &lsquo;abduhu wa rasuluh</p><p class="meaning" style="margin-left:0;">&ldquo;All greetings, blessings and pure words are for Allah. Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous servants of Allah. I bear witness there is no god but Allah, and I bear witness Muhammad is His servant and messenger.&rdquo;</p><p><strong>Source.</strong> Taught by the Prophet <span class="pbuh" lang="ar">&#65018;</span> to his Companions for every prayer. Reported from Ibn Mas&rsquo;ud in Sahih al-Bukhari (831) and Sahih Muslim.</p><p><strong>Meaning.</strong> Sat after the second rakah, and again at the end. It is your shahadah again, mid-prayer, renewed. The index finger is raised at &ldquo;la ilaha illallah&rdquo;, pointing to Allah&rsquo;s oneness.</p></div></details><details class="more"><summary>10. Durood: blessings on the Prophet</summary><div class="ans"><p class="arabic ar-opt" lang="ar" dir="rtl">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ</p><p class="translit">Allahumma salli &lsquo;ala Muhammadin wa &lsquo;ala ali Muhammad, kama sallayta &lsquo;ala Ibrahima wa &lsquo;ala ali Ibrahim, innaka Hamidun Majid. Allahumma barik &lsquo;ala Muhammadin wa &lsquo;ala ali Muhammad, kama barakta &lsquo;ala Ibrahima wa &lsquo;ala ali Ibrahim, innaka Hamidun Majid</p><p class="meaning" style="margin-left:0;">&ldquo;O Allah, send blessings upon Muhammad and the family of Muhammad, as You sent blessings upon Ibrahim and the family of Ibrahim. Indeed You are Praiseworthy and Glorious. O Allah, bless Muhammad and the family of Muhammad, as You blessed Ibrahim and the family of Ibrahim. Indeed You are Praiseworthy and Glorious.&rdquo;</p><p><strong>Source.</strong> Ka&rsquo;b ibn Ujrah asked the Prophet <span class="pbuh" lang="ar">&#65018;</span> how to send salawat upon him. This is his answer (Sahih al-Bukhari 3370, Sahih Muslim).</p><p><strong>Meaning.</strong> Recited only in the final sitting. It links you to the Prophet and, through him, to Ibrahim, a chain of prophets all conveying the same message.</p></div></details><details class="more"><summary>11. Closing du&rsquo;a</summary><div class="ans"><p>A short personal or Prophetic supplication before ending the prayer.</p><p><strong>Meaning.</strong> The one place in the fixed structure where you can freely ask, in Arabic if you know it, or in your own words. Salah is structured, but not rigid at every point.</p></div></details><details class="more"><summary>12. Salam: closing the prayer</summary><div class="ans"><p class="arabic ar-opt" lang="ar" dir="rtl">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ</p><p class="translit">Assalamu alaikum wa rahmatullah</p><p class="meaning" style="margin-left:0;">&ldquo;Peace and Allah&rsquo;s mercy be upon you.&rdquo; Turn the head to the right, then the left.</p><p><strong>Source.</strong> Reported from Ibn Mas&rsquo;ud in Sunan Abi Dawud (996), graded sahih by Al-Albani, and Jami&rsquo; at-Tirmidhi, as the standard closing of every prayer.</p><p><strong>Meaning.</strong> Classical scholars explain it as greeting the two recording angels, and as your return to the world, carrying the peace of the prayer with you.</p></div></details><p class="muted" style="margin-top:14px;">This covers the structure and the meaning of each part. It does not yet cover the finer fiqh: what is fard, wajib or sunnah, what invalidates a prayer, and where the schools of thought differ. Those differences are mostly about method, not meaning, and we will add them gradually, so it never feels like too much at once.</p><p class="printbar noprint"><button type="button" class="btn btn-line" data-print="m-prayer">Save the prayer guide as a PDF</button></p></div><details class="more"><summary>Why 2, 4, 4, 3 and 4 rakat?</summary><div class="ans"><p>The texts do not give a reason for the numbers, and we do not invent one. We pray them because Allah and His Messenger taught them: &ldquo;It is not for a believing man or a believing woman, when Allah and His Messenger have decided a matter, that they should have any option in their decision&rdquo; (Quran 33:36). Some parts of worship come with a wisdom we are told, and some we follow because they were commanded: &ldquo;We hear and we obey&rdquo; (Quran 2:285).</p></div></details><details class="more"><summary>Why do we make wudu?</summary><div class="ans"><p>Because we are about to stand before Allah. Allah &ldquo;loves those who purify themselves&rdquo; (Quran 2:222), and the Prophet <span class="pbuh" lang="ar">&#65018;</span> said that cleanliness is half of faith (Sahih Muslim). Wudu also washes away sins as the water falls (Sahih Muslim). It is cleanliness of the body that prepares the heart.</p></div></details>
+<div class="whybox"><p class="sec">Why it matters</p><p>Prayer is how we live out why we were created. &ldquo;Establish prayer for My remembrance&rdquo; (Quran 20:14). Five times a day we stop and return to Allah, so the whole day is wrapped in remembrance of Him. It is also the first thing we will be asked about on the Day of Judgement. The Prophet <span class="pbuh" lang="ar">&#65018;</span> said: &ldquo;The first action for which a servant will be held accountable is his prayer. If it is complete, he has succeeded; if it is defective, he has failed&rdquo; (Jami&rsquo; at-Tirmidhi 413, graded hasan). The Quran adds that &ldquo;prayer prohibits immorality and wrongdoing&rdquo; (Quran 29:45).</p><p>It was given to the Prophet <span class="pbuh" lang="ar">&#65018;</span> on the night of the Isra and Mi&rsquo;raj, when he was taken up to the heavens. The prayers were first fifty, and through Allah&rsquo;s mercy were reduced to five, with the reward of fifty (Sahih al-Bukhari, Sahih Muslim). It is a gift given directly, not through an angel.</p></div>
 <p class="sec">Common struggles</p>
+<details class="more"><summary>Common mistakes to avoid</summary><div class="ans"><ul>
+<li><strong>Rushing.</strong> The Prophet <span class="pbuh" lang="ar">&#65018;</span> once saw a man pray in a hurry and told him to go back and pray again, three times, then taught him to settle calmly in each position (Sahih al-Bukhari 757, Sahih Muslim 397). Slow down in the bow and the prostration.</li>
+<li><strong>Praying without wudu.</strong> The Prophet <span class="pbuh" lang="ar">&#65018;</span> said that Allah does not accept the prayer of one whose wudu has broken until he makes wudu (Sahih al-Bukhari 135, Sahih Muslim 225). If you are unsure whether yours broke, ask your teacher.</li>
+<li><strong>Guessing the Kaaba&rsquo;s direction.</strong> Check it before you begin, with a qibla app or compass, or follow the masjid&rsquo;s own direction.</li>
+<li><strong>Waiting until you are perfect.</strong> Begin now and improve as you go. A clumsy prayer prayed on time is better than a perfect one you keep putting off.</li></ul></div></details>
+<details class="more"><summary>How do I pray with others at the masjid?</summary><div class="ans"><p>Pray with others where you can. The Prophet <span class="pbuh" lang="ar">&#65018;</span> said prayer in congregation is better than praying alone by twenty-seven degrees (Sahih al-Bukhari 645, Sahih Muslim 650). One person leads, called the imam. Follow him, and never move ahead of him. Stand shoulder to shoulder in straight rows, because straightening the rows is part of completing the prayer (Sahih al-Bukhari 723, Sahih Muslim 433).</p><p>If you arrive late, join where the imam is and follow him. The Prophet <span class="pbuh" lang="ar">&#65018;</span> said: pray what you catch, and complete what you miss (Sahih al-Bukhari 636, Sahih Muslim 602). When he gives the salam, stand and complete what you missed.</p></div></details>
+
 <details class="more"><summary>I missed a prayer. What do I do?</summary><div class="ans"><p>The Prophet <span class="pbuh" lang="ar">&#65018;</span> said: whoever forgets a prayer or sleeps through it, its atonement is to pray it when he remembers (Sahih al-Bukhari 597, Sahih Muslim 684). Pray it as soon as you can, in order, and then carry on. Do not give up the rest of the day because one was missed.</p><p>Prayers from before you took your shahada are not made up. The scholars say Islam wipes away what came before. Ask a scholar about anything specific.</p></div></details>
 <details class="more"><summary>I have not learned the words yet</summary><div class="ans"><p>Keep praying with what you know and keep learning. A man once told the Prophet <span class="pbuh" lang="ar">&#65018;</span> that he could not learn the Quran, and asked for something to say instead. He taught him: <em>Subhan Allah, walhamdulillah, la ilaha illa Allah, wallahu akbar, wa la hawla wa la quwwata illa billah</em> (Sunan Abi Dawud). Learn Al-Fatiha and a short surah first, then add more. Your anchor or a brother at the masjid can sit with you.</p></div></details>
 <details class="more"><summary>How many rakat is each prayer, and which are loud?</summary><div class="ans"><p>Fajr 2 (loud), Dhuhr 4 (silent), Asr 4 (silent), Maghrib 3 (first two loud), Isha 4 (first two loud). See the core answer above.</p></div></details>
@@ -1300,6 +1364,12 @@ window.RJ_EDIT = {
 <details class="more"><summary>How do I get through my first Ramadan?</summary><div class="ans"><p>Take it a day at a time. Eat a proper suhoor, drink plenty between iftar and Fajr, and pace yourself. Tell your workplace early. Come to the masjid for iftar so you are not breaking your fast alone. If you slip or miss a day, you make it up and carry on. Ask us for a buddy: <a href="#ask">Talk to a person</a>.</p></div></details>
 <details class="more"><summary>What do I do if I cannot fast?</summary><div class="ans"><p>If you are ill or travelling, the Quran gives you a way: &ldquo;then an equal number of other days&rdquo; (Quran 2:184). If it is a long-term condition, ask a scholar about fidyah. Do not force yourself to harm your health.</p></div></details>
 <details class="more"><summary>What is special about this month?</summary><div class="ans"><p>The Quran, the nights, giving, and community. It is also a good moment to leave a habit, because Ramadan carries you. See <a href="#m-habits">Unlearning and growing</a>.</p></div></details>
+<details class="more"><summary>A note you can share with a colleague, classmate or family member</summary><div class="ans">
+<p><strong>What Ramadan is.</strong> It is the ninth month of the Islamic calendar, the month in which the Quran was first revealed (Quran 2:185). Its dates move earlier each year. Fasting in it is one of the five pillars of Islam.</p>
+<p><strong>What the fast involves.</strong> From dawn until sunset, no food and no drink at all, water included (Quran 2:187). Most people eat a light meal before dawn, called suhoor, and break the fast at sunset with dates and water, called iftar. The aim is spiritual: self-restraint and awareness of Allah (Quran 2:183). It is not hunger for its own sake.</p>
+<p><strong>Who does not fast.</strong> The sick, travellers, the very old, and women with their cycle are excused, and make up the days later where they can (Quran 2:184-185).</p>
+<p><strong>What helps.</strong> Energy often dips in the afternoon, because the person may have been up before dawn, so put demanding meetings earlier where you can. Near sunset, a shorter lunch or leaving on time to break the fast helps a lot. &ldquo;Ramadan Mubarak&rdquo; is a warm thing to say. The month ends with Eid al-Fitr, a day of celebration.</p>
+<p><strong>What is not a problem.</strong> Eating or drinking in front of them, or inviting them to lunch. Most people fasting do not expect anyone else to change what they do. A kind, respectful question is usually welcome.</p></div></details>
 <p class="sec">Go deeper</p>
 <div class="rows"><div><h4>Your first Ramadan</h4><div class="links"><span>Guide coming soon</span></div></div>
 <div><h4>How fasting works, suhoor and iftar</h4><div class="links"><span>Guide coming soon</span></div></div></div>
@@ -1454,6 +1524,34 @@ window.RJ_EDIT = {
         </div>
         </details>
         <details>
+          <summary>Morning and evening (4)</summary>
+          <p class="muted" style="margin:8px 0 12px;">A short set, said once the sun has risen or set. Learn one at a time. <span class="chip build review">Being checked with our scholars</span></p>
+        <div class="dua">
+          <h4>Asking forgiveness: Sayyid al-Istighfar</h4>
+          <p class="arabic" lang="ar" dir="rtl">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ</p>
+          <p class="translit">Allahumma anta Rabbi la ilaha illa ant, khalaqtani wa ana &lsquo;abduk, wa ana &lsquo;ala &lsquo;ahdika wa wa&lsquo;dika mastata&lsquo;t, a&lsquo;udhu bika min sharri ma sana&lsquo;t, abu&rsquo;u laka bi ni&lsquo;matika &lsquo;alayya, wa abu&rsquo;u bidhanbi faghfir li, fa innahu la yaghfirudh-dhunuba illa ant</p>
+          <p class="meaning" style="margin-left:0;">O Allah, You are my Lord. There is no god but You. You created me and I am Your servant, and I keep Your covenant and promise as best I can. I seek refuge in You from the evil I have done. I admit Your favour upon me, and I admit my sin, so forgive me, for none forgives sins but You.</p>
+          <p class="src">Once, in the morning or evening. Sahih al-Bukhari 6306</p>
+        </div>
+        <div class="dua">
+          <h4>Entering the morning</h4>
+          <p class="arabic" lang="ar" dir="rtl">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</p>
+          <p class="translit">Asbahna wa asbahal-mulku lillah, walhamdu lillah, la ilaha illallahu wahdahu la sharika lah</p>
+          <p class="meaning" style="margin-left:0;">We have entered the morning, and the kingdom belongs to Allah. All praise is for Allah. There is no god but Allah alone, with no partner. In the evening, begin with <em>Amsayna wa amsal-mulku lillah</em>, &ldquo;We have entered the evening&hellip;&rdquo;. The report continues with more words.</p>
+          <p class="src">Sahih Muslim 2723</p>
+        </div>
+        <div class="dua">
+          <h4>The three Quls</h4>
+          <p class="meaning" style="margin-left:0;">Surah Al-Ikhlas, Surah Al-Falaq and Surah An-Nas. The Prophet <span class="pbuh" lang="ar">&#65018;</span> said to recite them three times each, morning and evening, and that they will be enough for you against everything. Read them on <a href="https://quran.com/112">Quran.com</a>.</p>
+          <p class="src">Three times each. Sunan Abi Dawud 5082, Jami&rsquo; at-Tirmidhi 3575</p>
+        </div>
+        <div class="dua">
+          <h4>Ayat al-Kursi</h4>
+          <p class="meaning" style="margin-left:0;">The Verse of the Throne, Surah Al-Baqarah verse 255. Read it from the Quran, and listen to it on <a href="https://quran.com/2/255">Quran.com</a>.</p>
+          <p class="src">Quran 2:255</p>
+        </div>
+        </details>
+        <details>
           <summary>For your heart and your learning (2)</summary>
         <div class="dua">
           <h4>For steadfastness</h4>
@@ -1531,7 +1629,7 @@ window.RJ_EDIT = {
           <div class="term"><b>Qiblah</b><span>The direction faced in prayer, toward the Kaaba in Makkah.</span></div>
           <div class="term"><b>Adhan</b><span>The call to prayer.</span></div>
           <div class="term"><b>Iqamah</b><span>The second call, just before the congregational prayer begins.</span></div>
-          <div class="term"><b>Imam</b><span>The person who leads the prayer.</span></div>
+          <div class="term"><b>Imam</b><span>The person who leads the prayer.</span></div><div class="term"><b>Jamaah</b><span>Praying together, in congregation.</span></div><div class="term"><b>Khushu</b><span>Being present in the prayer, with calm and humility.</span></div>
           <div class="term"><b>Jumuah</b><span>The Friday congregational prayer.</span></div>
           <div class="term"><b>Khutbah</b><span>A sermon, such as the one before the Friday prayer.</span></div><div class="term"><b>Niyyah</b><span>Intention. The decision, in the heart, of which prayer you are standing for. No spoken words are needed.</span></div><div class="term"><b>Takbirat al-Ihram</b><span>The first &ldquo;Allahu Akbar&rdquo; that opens the prayer. From here, talking, eating and looking around are not allowed until the prayer ends.</span></div><div class="term"><b>Qiyam</b><span>Standing in prayer.</span></div><div class="term"><b>Thana</b><span>The opening du&rsquo;a said quietly after the first takbir, before reciting Al-Fatiha.</span></div><div class="term"><b>Al-Fatiha</b><span>&ldquo;The Opening&rdquo;. The first chapter of the Quran, recited in every rakah.</span></div><div class="term"><b>Salawat (Durood)</b><span>Blessings on the Prophet, recited in the final sitting of the prayer and at other times.</span></div><div class="term"><b>Salam</b><span>Peace. The closing of the prayer, turning the head to the right and then the left.</span></div><div class="term"><b>Fard</b><span>Obligatory. What must be done, such as the five daily prayers.</span></div><div class="term"><b>Wajib</b><span>A term some schools use for something necessary, just below fard. Ask a scholar if it matters for your situation.</span></div><div class="term"><b>Madhhab</b><span>A school of fiqh, a scholarly method for working out rulings from the Quran and the Sunnah. There are four main ones: Hanafi, Maliki, Shafi&rsquo;i and Hanbali.</span></div><div class="term"><b>Isra and Mi&rsquo;raj</b><span>The Night Journey and the Ascension. The Prophet was taken to Jerusalem and then up through the heavens, and the five daily prayers were given.</span></div><div class="term"><b>Hadith qudsi</b><span>A saying in which the Prophet reports words from Allah, but which is not part of the Quran.</span></div>
         </div>
@@ -1639,6 +1737,7 @@ window.RJ_EDIT = {
 
 <!-- SISTERS -->
 <div class="panel" id="sisters">
+  <div class="bgpat" aria-hidden="true"></div>
   <div class="wrap">
     <div class="subnav" aria-label="In this section"><a href="#find">Find a circle</a><a href="#events">Events and classes</a><a href="#read">Revert stories</a><a href="#sisters">Sisters&rsquo; space</a></div>
     <div class="block">
@@ -1649,12 +1748,14 @@ window.RJ_EDIT = {
       <div class="define"><b>Who is this for?</b>Any sister, of any background, at any point on the road. Brothers are welcome to share it with the women in their lives. We will not publish anything on women&rsquo;s rulings until a qualified scholar has reviewed it.</div>
       <p class="sec">What we are building</p>
       <div class="arche">
-        <div class="tilebox"><b>Your cycle, prayer, fasting and cleanliness</b><span>What changes, what does not, and why. Written plainly and checked carefully.</span></div>
         <div class="tilebox"><b>Hijab and modesty</b><span>Where to begin, and resources, without pressure and without shame.</span></div>
         <div class="tilebox"><b>The questions sisters ask</b><span>The &ldquo;why&rdquo; questions, answered from the sources, honestly.</span></div>
-        <div class="tilebox"><b>Marriage, family and motherhood</b><span>Rights, difficult families, and being a mother who is new to the faith.</span></div>
-        <div class="tilebox"><b>Support and tools</b><span>People to talk to, and practical help.</span></div>
         <div class="tilebox"><b>A sisters&rsquo; circle</b><span>A place to meet other sisters. We are shaping this with them.</span></div>
+        <div class="tilebox"><b>Marriage, family and motherhood</b><span>Rights, difficult families, and being a mother who is new to the faith.</span></div>
+        <div class="tilebox"><b>What to learn first as a new Muslim</b><span>A calm order to learn things in, so it never feels like too much.</span></div>
+        <div class="tilebox"><b>Everyday manners</b><span>Etiquette in the masjid, with family and in daily life, explained simply.</span></div>
+        <div class="tilebox"><b>Prayer, fasting and cleanliness</b><span>How to get started, and what changes at certain times of the month. Written plainly, and published only once a qualified female scholar has checked it.</span></div>
+        <div class="tilebox"><b>Support and tools</b><span>People to talk to, and practical help.</span></div>
       </div>
       <p class="sec">Help us build it</p>
       <p>What would you want here? What do you wish someone had told you? Tell us, and say if you would like a sister to reply. We will try, and we will tell you honestly if we cannot yet.</p>
@@ -1665,6 +1766,7 @@ window.RJ_EDIT = {
 
 <!-- ASK -->
 <div class="panel" id="ask">
+  <div class="bgph" style="--img:url(assets/img/etch/minaret-sky.jpg); --imgd:url(assets/img/etch/minaret-skyd.jpg); --pos:center 20%;" aria-hidden="true"></div>
   <div class="wrap">
     <div class="block">
       <div class="split">
@@ -1737,6 +1839,7 @@ window.RJ_EDIT = {
 
 <!-- FIND -->
 <div class="panel" id="find">
+  <div class="bgph" style="--img:url(assets/img/etch/courtyard-dome.jpg); --imgd:url(assets/img/etch/courtyard-domed.jpg); --pos:center 40%;" aria-hidden="true"></div>
   <div class="wrap">
     <div class="subnav" aria-label="In this section"><a href="#find">Find a circle</a><a href="#events">Events and classes</a><a href="#read">Revert stories</a><a href="#sisters">Sisters&rsquo; space</a></div>
     <div class="block">
@@ -1799,6 +1902,7 @@ window.RJ_EDIT = {
 
 <!-- EVENTS -->
 <div class="panel" id="events">
+  <div class="bgph" style="--img:url(assets/img/etch/courtyard-palms.jpg); --imgd:url(assets/img/etch/courtyard-palmsd.jpg); --pos:center 60%;" aria-hidden="true"></div>
   <div class="wrap">
     <div class="subnav" aria-label="In this section"><a href="#find">Find a circle</a><a href="#events">Events and classes</a><a href="#read">Revert stories</a><a href="#sisters">Sisters&rsquo; space</a></div>
     <div class="block">
@@ -1862,6 +1966,7 @@ window.RJ_EDIT = {
 
 <!-- HARD -->
 <div class="panel" id="hard">
+  <div class="bgph" style="--img:url(assets/img/etch/minaret-sky.jpg); --imgd:url(assets/img/etch/minaret-skyd.jpg); --pos:center 60%;" aria-hidden="true"></div>
   <div class="wrap">
     <div class="subnav" aria-label="In this section"><a href="#support">Support and kit</a><a href="#hard">When it gets hard</a><a href="#ask">Talk to a person</a></div>
 
@@ -1959,6 +2064,7 @@ window.RJ_EDIT = {
 
 <!-- STORIES -->
 <div class="panel" id="read">
+  <div class="bgph" style="--img:url(assets/img/etch/library-shelves.jpg); --imgd:url(assets/img/etch/library-shelvesd.jpg); --pos:center 40%;" aria-hidden="true"></div>
   <div class="wrap">
     <div class="subnav" aria-label="In this section"><a href="#find">Find a circle</a><a href="#events">Events and classes</a><a href="#read">Revert stories</a><a href="#sisters">Sisters&rsquo; space</a></div>
     <div class="block" id="stories">
@@ -2045,6 +2151,7 @@ window.RJ_EDIT = {
 
 <!-- INVOLVE -->
 <div class="panel" id="involve">
+  <div class="bgph" style="--img:url(assets/img/etch/minaret-arch.jpg); --imgd:url(assets/img/etch/minaret-archd.jpg); --pos:center 30%;" aria-hidden="true"></div>
   <div class="join">
     <div class="wrap">
       <div class="block">
@@ -2140,7 +2247,34 @@ window.RJ_EDIT = {
           <p class="muted">What you already offer, which days you teach and meet, and where reverts in your area fall through the gaps, so we can signpost people properly.</p>
         </div>
       </div>
-      <p style="margin-top:26px;"><a class="btn btn-primary" href="#helpform">Tell us about your masjid or group</a></p>
+      <p style="margin-top:26px;"><a class="btn btn-primary" href="#mjform">Tell us about your masjid or group</a></p>
+      <div class="box" id="mjform" style="max-width:44em; margin-top:22px;">
+        <h3>What does your masjid or group run?</h3>
+        <p class="muted" style="margin-bottom:16px;">One line is enough. Classes, circles, events, videos, teachers, anything for new Muslims. We will check the details with you before anything is listed, and we will link to you, not copy you.</p>
+        <form class="rhform" data-subject="Masjid or group listing" data-autoresponse="Thank you for telling Revert Journeys what you run. We will check the details with you before anything is listed." data-thanks="Thank you. We will check the details with you before anything is listed.">
+          <div class="hp"><label>Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+          <div class="field"><label for="mj-org">Name of the masjid or group</label><input id="mj-org" name="masjid_or_group" type="text" required></div>
+          <div class="field"><label for="mj-area">Area or city</label><input id="mj-area" name="area" type="text" required></div>
+          <div class="field"><label for="mj-name">Your name and role</label><input id="mj-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="mj-email">Your email</label><input id="mj-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="mj-phone">Your phone number (optional)</label><input id="mj-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="checks">
+            <span class="lab">What do you run?</span>
+            <label class="opt"><input type="checkbox" name="runs" value="Classes"> <span>Classes</span></label>
+            <label class="opt"><input type="checkbox" name="runs" value="Programme for reverts"> <span>A programme or circle for reverts</span></label>
+            <label class="opt"><input type="checkbox" name="runs" value="Events"> <span>Events, open days or iftars</span></label>
+            <label class="opt"><input type="checkbox" name="runs" value="Videos or resources"> <span>Videos, playlists or resources</span></label>
+            <label class="opt"><input type="checkbox" name="runs" value="Sisters provision"> <span>Something for sisters</span></label>
+            <label class="opt"><input type="checkbox" name="runs" value="Shahada support"> <span>Shahada support or a welcome person</span></label>
+          </div>
+          <div class="field"><label for="mj-det">Tell us a little. Days and times, who it is for, whether it is free</label><textarea id="mj-det" name="details" rows="4"></textarea></div>
+          <div class="field"><label for="mj-link">A link, such as your website, WhatsApp group or YouTube channel (optional)</label><input id="mj-link" name="link" type="url"></div>
+          <div class="field"><label class="opt"><input type="checkbox" name="ok_to_list" value="yes" style="width:auto; margin-right:8px;"> <span>You may list us on Revert Journeys once we have checked the details together</span></label></div>
+          <button type="submit" class="btn btn-primary btn-button">Send</button>
+          <p class="formmsg" role="status" aria-live="polite"></p>
+          <p class="formnote">We only use these details to check and list what you run.</p>
+        </form>
+      </div>
     </div>
 
     <div class="block">
@@ -2153,6 +2287,7 @@ window.RJ_EDIT = {
 
 <!-- SUPPORT -->
 <div class="panel" id="support">
+  <div class="bgph" style="--img:url(assets/img/etch/door.jpg); --imgd:url(assets/img/etch/doord.jpg); --pos:center 30%; opacity:.55;" aria-hidden="true"></div>
   <div class="wrap">
     <div class="subnav" aria-label="In this section"><a href="#support">Support and kit</a><a href="#hard">When it gets hard</a><a href="#ask">Talk to a person</a></div>
     <div class="block">
@@ -2160,17 +2295,20 @@ window.RJ_EDIT = {
       <h2>Support</h2>
       <p class="sub">Somewhere to go when you need something practical, in the order most people need it: free resources first, then the things you may want to own, then help if life is hard, then ways to give.</p>
       <div class="pills" aria-label="On this page">
-        <a href="#sup-free">1. Free resources</a><a href="#kit">2. Starter Kit</a><a href="#sup-hard">3. Help in hardship</a><a href="#sup-give">4. Give and dua</a>
+        <a href="#sup-free">1. Free Muslim Starter Kit</a><a href="#kit">2. Starter Kit</a><a href="#sup-hard">3. Help in hardship</a><a href="#sup-give">4. Give and dua</a>
       </div>
     </div>
 
     <div class="block" id="sup-free">
-      <h2>1. Free resources, ready now</h2>
-      <p class="sub">Nothing to pay, and some can be posted to your door.</p>
+      <h2>1. The free Muslim Starter Kit</h2>
+      <p class="sub">Books, apps, courses and boxes, all free, so you do not have to hunt for them. Pick one to start. You do not need all of it.</p>
       <div class="rows">
-        <div><div><h4>Free Dawah gift box from IERA</h4><p class="muted">Five free books, posted to you.</p></div><div class="links"><a href="https://iera.org/product/dawah-gift-box-2/">Order free</a></div></div>
+        <div><div><h4>Free books</h4><p class="muted">Good first reads, linked straight from the publishers.</p></div><div class="links"><a href="#m-books">Open the books</a></div></div>
+        <div><div><h4>Apps and tools</h4><p class="muted">Quran, dua, prayer and Arabic apps our community has used.</p></div><div class="links"><a href="#m-apps">Open the apps</a></div></div>
+        <div><div><h4>A free course, step by step</h4><p class="muted">New Muslims eLearning works through the basics at your own pace.</p></div><div class="links"><a href="https://www.newmuslims.com/level/1">Open the course</a></div></div>
         <div><div><h4>Welcome gift box for new Muslims</h4><p class="muted">A free IERA box for people who have recently taken their shahadah. See the page for how to request one.</p></div><div class="links"><a href="https://newmuslim.iera.org/welcome-gift-box/">Request one</a></div></div>
-        <div><div><h4>Free books, videos, apps and courses</h4><p class="muted">Everything we have gathered, in one place.</p></div><div class="links"><a href="#m-books">Free books</a><a href="#learn">Learn</a></div></div>
+        <div><div><h4>Free Dawah gift box from IERA</h4><p class="muted">Five free books, posted to you.</p></div><div class="links"><a href="https://iera.org/product/dawah-gift-box-2/">Order free</a></div></div>
+        <div><div><h4>Tell us what is on your mind</h4><p class="muted">Not sure where to start? Write to us, or send a DM on Instagram, and a real person will reply.</p></div><div class="links"><a href="#ask">Message us</a><a href="https://www.instagram.com/revertjourneysuk/">Instagram DM</a></div></div>
       </div>
     </div>
 
@@ -2254,7 +2392,7 @@ window.RJ_EDIT = {
 <script>
 (function(){
   /* Change these two lines when the new domain and email are ready */
-  var SITE_URL='https://reverthub.uk', SITE_EMAIL='hubrevert@gmail.com';
+  var SITE_URL='https://revertjourneys.uk', SITE_EMAIL='hubrevert@gmail.com';
   var root=document.documentElement;
   root.classList.add('js');
   var panels=[].slice.call(document.querySelectorAll('.panel'));
@@ -2288,8 +2426,10 @@ window.RJ_EDIT = {
     }
 
     if(initial && (wasEmpty || !id)){ return; }
-    var inner = el && el!==panel && !el.classList.contains('module');
-    if(inner){ el.scrollIntoView(); } else { window.scrollTo(0,0); if(document.body.scrollIntoView){ document.body.scrollIntoView(true); } }
+    var isMod = el && el.classList.contains('module');
+    var inner = el && el!==panel && !isMod;
+    if(isMod){ window.scrollTo(0,0); el.scrollIntoView(); }
+    else if(inner){ el.scrollIntoView(); } else { window.scrollTo(0,0); if(document.body.scrollIntoView){ document.body.scrollIntoView(true); } }
   }
 
   var gs=document.getElementById('gsearch');
